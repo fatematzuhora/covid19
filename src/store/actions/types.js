@@ -1,0 +1,1 @@
+export const SUMMARY_DATA = "SUMMARY_DATA";

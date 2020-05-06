@@ -1,0 +1,7 @@
+html {
+    // This defines what 1rem is
+    // Normally 1 rem = 16px (browser assumes 'font-size: 100%' means 1rem or 16px). We want to make 1rem = 10px to simplify our calculation.
+    // If we make that then whenever We need to write 22px we can write 2.2rem, for 18px we can use 1.8rem.
+    // 1 rem = 10px; 10px/16px = 62.5%
+    font-size: 62.5% !important;
+}

@@ -1,0 +1,14 @@
+.topnav {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: $color-white;
+
+    .logo {
+        float: left;
+        
+        img {
+            width: 13.5rem;
+        }
+    }
+}

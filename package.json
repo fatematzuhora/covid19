@@ -1,0 +1,59 @@
+{
+  "name": "covid19-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "antd": "^4.1.4",
+    "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
+    "react": "^16.13.1",
+    "react-chartjs-2": "^2.9.0",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.13.1",
+    "react-jvectormap": "0.0.16",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "compile:less": "lessc --js src/design/less/main.less src/assets/css/antd.comp.css",
+    "compress:less": "node-sass src/assets/css/antd.comp.css src/assets/css/antd.css --output-style compressed",
+    "compile:sass": "node-sass src/design/sass/main.scss src/assets/css/styles.comp.css",
+    "prefix:css": "postcss src/assets/css/styles.comp.css --use=autoprefixer -o src/assets/css/styles.prefix.css",
+    "compress:css": "node-sass src/assets/css/styles.prefix.css src/assets/css/styles.css --output-style compressed",
+    "build:css": "npm-run-all compile:less compress:less compile:sass prefix:css compress:css",
+    "watch:sass": "node-sass src/design/sass/main.scss src/assets/css/styles.css -w"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "dotenv": "^8.2.0",
+    "less": "^3.10.3",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.3"
+  }
+}
