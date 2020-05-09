@@ -59,12 +59,41 @@ const LineChart = (props) => {
                         fill: true
                     }]
                 }}
-            />) : null
+            />) : <Line
+                    data={{
+                        labels: null,
+                        datasets: [{
+                            data: null,
+                            label: 'Confirmed',
+                            borderColor: '#3333ff',
+                            fill: true
+                        }, {
+                            data: null,
+                            label: 'Recovered',
+                            borderColor: 'green',
+                            fill: true
+                        }, {
+                            data: null,
+                            label: 'Deaths',
+                            borderColor: 'red',
+                            fill: true
+                        }]
+                    }}
+                />
     )
-    
+
     return (
         <div>
-            <Select onChange={(e) => handleSelectCountry(e)} defaultValue={selectedCountry}>
+            <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a Country"
+                optionFilterProp="children"
+                onChange={(e) => handleSelectCountry(e)}
+                filterOption={(input, option) =>
+                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
+            >
                 {countrySelectOptions}
             </Select>
 

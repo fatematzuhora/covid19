@@ -59,6 +59,7 @@ class Dashboard extends Component {
                 <GlobalData data={Global} />
                 {new Date(this.state.Date).toUTCString().split(',')[1]}
                 <LineChart visitFrom={visitorCountry} />
+                <CountryTable />
             </div>
         )
     }
