@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Input, Table } from 'antd';
+// redux
 import { connect } from 'react-redux';
+// antd
+import { Input, Table } from 'antd';
+
 
 const CountryTable = (props) => {
     const [searchText, setSearchText] = useState();

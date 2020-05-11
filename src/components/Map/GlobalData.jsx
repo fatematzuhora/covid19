@@ -1,24 +1,52 @@
 import React from 'react';
+// redux
+import { connect } from 'react-redux';
+// antd
+import { Row, Col } from 'antd';
+import CountUp from 'react-countup';
+
 
 const GlobalData = (props) => {
-    const { data } = props;
+    const { global } = props;
 
     return (
-        <div className="globalData">
-            <p>
-                Confirmed: {data.TotalConfirmed}<br/>
-                + {data.NewConfirmed}
-            </p>
-            <p>
-                Recovered: {data.TotalRecovered}<br/>
-                + {data.NewRecovered}
-            </p>
-            <p>
-                Deaths: {data.TotalDeaths}<br/>
-                + {data.NewDeaths}
-            </p>
-        </div>
+        <Row>
+            <Col span={24}>
+                <div className="global">
+                    <p>
+                        Confirmed:
+                        <CountUp
+                            start={0}
+                            end={global.TotalConfirmed}
+                            duration={2}
+                            separator=","
+                        />
+                        
+                        <br/>+
+                        <CountUp
+                            start={0}
+                            end={global.NewConfirmed}
+                            duration={2}
+                            separator=","
+                        />
+                    </p>
+                    <p>
+                        Recovered: {global.TotalRecovered}<br/>
+                        + {global.NewRecovered}
+                    </p>
+                    <p>
+                        Deaths: {global.TotalDeaths}<br/>
+                        + {global.NewDeaths}
+                    </p>
+                </div>
+            </Col>
+        </Row>
     )
 }
 
-export default GlobalData;
+// redux state and dispatch
+const mapStateToProps = (state) => ({
+    global: state.summary.global
+})
+
+export default connect(mapStateToProps, null)(GlobalData);

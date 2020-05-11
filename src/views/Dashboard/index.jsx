@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CountryData, LineChart, CountryTable, GlobalData, WorldMap } from 'components';
+import { Country, CountryTable, WorldMap } from 'components';
 // antd
 import { Spin } from 'antd';
 // api endpoint
@@ -16,11 +16,7 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             loading: false,
-            visitorCountry: undefined,
-            mapData: {},
-            Global: {},
-            Countries: {},
-            Date: undefined
+            visitorCountry: undefined
         }
     }
 
@@ -30,19 +26,14 @@ class Dashboard extends Component {
 
         const visitorCountry = await getGeoInfo();
         const { Global, Countries, Date } = await getSummaryData();
-
-        let mapData = {};
-        Countries.forEach(country => {
-            mapData[country.CountryCode] = country.TotalConfirmed;
-        })
-
         this.props.storeSummaryData(Global, Countries, Date);
-        this.setState({ visitorCountry, Global, Countries, Date, mapData, loading: false })
+
+        this.setState({ visitorCountry, loading: false })
     }
 
     // render starts from here
     render() {
-        const { loading, visitorCountry, Global, mapData } = this.state;
+        const { loading, visitorCountry } = this.state;
 
         if(loading) {
             return (
@@ -54,11 +45,9 @@ class Dashboard extends Component {
         
         // return the jsx
         return (
-            <div>
+            <div className="main">
                 <WorldMap />
-                <GlobalData data={Global} />
-                {new Date(this.state.Date).toUTCString().split(',')[1]}
-                <LineChart visitFrom={visitorCountry} />
+                <Country visitFrom={visitorCountry} />
                 <CountryTable />
             </div>
         )

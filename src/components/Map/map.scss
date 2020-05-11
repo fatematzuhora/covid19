@@ -1,0 +1,30 @@
+.section_map {
+    position: relative;
+
+    .global, .mapcase {
+        position: absolute;
+        z-index: 1;
+    }
+
+    .global {
+        left: 0;
+    }
+
+    .worldmap {
+        height: 45rem;
+    }
+
+    .mapcase {
+        right: 8rem;
+        bottom: 12rem;
+
+        &_options {
+            display: flex;
+            flex-direction: column;
+            label {
+                padding: .8rem 0;
+            }
+        }
+    }
+
+}

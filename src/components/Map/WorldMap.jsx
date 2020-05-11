@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { VectorMap } from 'react-jvectormap';
+// redux
 import { connect } from 'react-redux';
-import { Radio } from 'antd';
+// components
+import { GlobalData } from 'components';
+// antd
+import { Radio, Row, Col } from 'antd';
+import { VectorMap } from 'react-jvectormap';
 
 
 const WorldMap = (props) => {
@@ -55,39 +59,54 @@ const WorldMap = (props) => {
     }
 
     return (
-        <div>
-            <div>
-                <Radio.Group onChange={onChange} value={type}>
-                    <Radio value="confirmed">Confirmed</Radio>
-                    <Radio value="deaths">Deaths</Radio>
-                    <Radio value="recovered">Recovered</Radio>
-                    <Radio value="active">Active</Radio>
-                </Radio.Group>
-            </div>
+        <section className="section_map">
 
-            <div className="map" style={{'height': '440px'}}>
-                <VectorMap
-                    map={"world_mill"}
-                    backgroundColor="transparent" // map background color
-                    zoomOnScroll={false}
-                    zoomButtons={false}
-                    containerStyle={{
-                        width: "100%",
-                        height: "100%"
-                    }}
-                    onRegionClick={handleClick} // gets the country code
-                    containerClassName="map"
-                    regionsSelectable={false}
-                    series={{
-                        regions: [{
-                            values: mapData.data, // this is your data
-                            scale: mapData.color, // your color game's here
-                            normalizeFunction: "polynomial"
-                        }]
-                    }}
-                />
-            </div>
-        </div>
+            {/* left side global data info */}
+            <GlobalData />
+
+            {/* world map */}
+            <Row>
+                <Col span={24}>
+                    <div className="worldmap">
+                        <VectorMap
+                            map={"world_mill"}
+                            backgroundColor="transparent" // map background color
+                            zoomOnScroll={false}
+                            zoomButtons={false}
+                            containerStyle={{
+                                width: "100%",
+                                height: "100%"
+                            }}
+                            onRegionClick={handleClick} // gets the country code
+                            containerClassName="map"
+                            regionsSelectable={false}
+                            series={{
+                                regions: [{
+                                    values: mapData.data, // map data
+                                    scale: mapData.color, // map color palette based on case type
+                                    normalizeFunction: "polynomial"
+                                }]
+                            }}
+                        />
+                    </div>
+                </Col>
+            </Row>
+
+            {/* right side case type changer */}
+            <Row>
+                <Col span={24}>
+                    <div className="mapcase">
+                        <Radio.Group onChange={onChange} value={type} className="mapcase_options">
+                            <Radio value="confirmed">Confirmed</Radio>
+                            <Radio value="deaths">Deaths</Radio>
+                            <Radio value="recovered">Recovered</Radio>
+                            <Radio value="active">Active</Radio>
+                        </Radio.Group>
+                    </div>
+                </Col>
+            </Row>
+
+        </section>
     )
 }
 
