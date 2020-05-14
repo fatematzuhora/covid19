@@ -14,11 +14,15 @@ const CountryData = (props) => {
     return (
         <div>
             Name: {countryData.Country}<br/>
-            Total Confirmed:
+            Total Confirmed: {countryData.TotalConfirmed}
             <CountUp
+                start={0}
                 end={countryData.TotalConfirmed}
                 duration={2}
                 separator=","
+                onEnd={({ pauseResume, reset, start, update }) => update()}
+                // onEnd={() => console.log('Ended! 👏')}
+                onStart={() => console.log(`Started! ${countryData.TotalConfirmed}`)}
             /><br/>
             + {countryData.NewConfirmed}
             <CountUp

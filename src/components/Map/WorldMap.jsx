@@ -14,7 +14,6 @@ const WorldMap = (props) => {
         setMapData(getMapData(type));
     }, {})
 
-
     const getMapData = (type) => {
         let data = {}, color = [];
         

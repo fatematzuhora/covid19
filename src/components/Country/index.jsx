@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllCountries, getChartDataByCountry } from 'api';
+import { getAllCountries } from 'api';
 import { CountryData, LineChart } from 'components';
 import { Row, Col, Select } from 'antd';
 import { connect } from 'react-redux';
@@ -7,15 +7,10 @@ import { connect } from 'react-redux';
 
 const Country = (props) => {
     const [countryList, setCountryList] = useState([]);
-    const [visitorCountry, setVisitorCountry] = useState(props.visitFrom);
     const [selectedCountry, setSelectedCountry] = useState(props.visitFrom);
-    const [chartData, setChartData] = useState([]);
     
-    const fetchData = async(slug) => {
-        const country = props.countries.find(country => country.Slug === slug);
-        // setCountryData(country);
-        setCountryList(await getAllCountries());    
-        setChartData(await getChartDataByCountry(slug));
+    const fetchData = async() => {
+        setCountryList(await getAllCountries()); 
     }
 
     useEffect(() => {
@@ -23,9 +18,6 @@ const Country = (props) => {
     }, [])
 
     const handleSelectCountry = async(slug) => {
-        const country = props.countries.find(country => country.Slug === slug);
-        // setCountryData(country);
-        setChartData(await getChartDataByCountry(slug));
         setSelectedCountry(slug);
     }
     
@@ -34,7 +26,6 @@ const Country = (props) => {
             <option key={i} value={country.Slug}>{country.Country}</option>
         )
     })
-
 
     return (
         <section className="section_country">
@@ -69,7 +60,7 @@ const Country = (props) => {
                     <CountryData country={selectedCountry} />
                 </Col>
                 <Col span={16}>
-                    <LineChart data={chartData} />
+                    <LineChart country={selectedCountry} />
                 </Col>
             </Row>
         </section>
@@ -78,7 +69,6 @@ const Country = (props) => {
 
 // redux state and dispatch
 const mapStateToProps = (state) => ({
-    countries: state.summary.countries,
     reportDate: state.summary.reportDate
 })
 

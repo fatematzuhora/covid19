@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getChartDataByCountry } from 'api';
 import { Line } from 'react-chartjs-2';
 
 
 const LineChart = (props) => {
+    const [chartData, setChartData] = useState([]);
+
+    const fetchData = async(slug) => {
+        setChartData(await getChartDataByCountry(slug));
+    }
+
+    useEffect(() => {
+        const country = props.country;
+        fetchData(country);
+    }, [props.country])
 
     const dateString = (date) => {
         const str = new Date(date).toString().slice(4, 10);
@@ -10,22 +21,22 @@ const LineChart = (props) => {
     }
 
     const lineChart = (
-        props.data.length ?
+        chartData.length ?
         (<Line
             data={{
-                labels: props.data.map(( { Date } ) => dateString(Date) ),
+                labels: chartData.map(( { Date } ) => dateString(Date) ),
                 datasets: [{
-                    data: props.data.map(( { Confirmed } ) => Confirmed),
+                    data: chartData.map(( { Confirmed } ) => Confirmed),
                     label: 'Confirmed',
                     borderColor: '#3333ff',
                     fill: true
                 }, {
-                    data: props.data.map(( { Recovered } ) => Recovered),
+                    data: chartData.map(( { Recovered } ) => Recovered),
                     label: 'Recovered',
                     borderColor: 'green',
                     fill: true
                 }, {
-                    data: props.data.map(( { Deaths } ) => Deaths),
+                    data: chartData.map(( { Deaths } ) => Deaths),
                     label: 'Deaths',
                     borderColor: 'red',
                     fill: true

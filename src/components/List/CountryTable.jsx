@@ -58,7 +58,6 @@ const CountryTable = (props) => {
             render: (record) => <span>{record.TotalConfirmed - (record.TotalRecovered + record.TotalDeaths)}</span>
         }
     ]
-  
 
     return (
         <>
