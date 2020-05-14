@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Country, CountryTable, WorldMap } from 'components';
 // antd
-import { Spin } from 'antd';
+import { Col, Layout, Row, Spin } from 'antd';
 // api endpoint
 import { getSummaryData, getGeoInfo } from 'api';
 // redux
@@ -15,22 +15,35 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            time: new Date(),
             loading: false,
             visitorCountry: undefined
         }
     }
 
+    tick() {
+        this.setState({
+            time: new Date()
+        });
+    }
+
     // async all data while component mount
     async componentDidMount() {
-        this.setState({ loading: true })
+        this.timerID = setInterval(() => this.tick(), 1000);
+        
+        this.setState({ loading: true });
 
         const visitorCountry = await getGeoInfo();
         const { Global, Countries, Date } = await getSummaryData();
+        
         this.props.storeSummaryData(Global, Countries, Date);
-
-        this.setState({ visitorCountry, loading: false })
+        this.setState({ visitorCountry, loading: false });
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+    
     // render starts from here
     render() {
         const { loading, visitorCountry } = this.state;
@@ -45,11 +58,37 @@ class Dashboard extends Component {
         
         // return the jsx
         return (
-            <div className="main">
-                <WorldMap />
-                <Country visitFrom={visitorCountry} />
-                <CountryTable />
-            </div>
+            <Layout className="layout">
+                {/* header / navbar */}
+                <Layout.Header className="topnav">
+                    <Row type="flex" justify="space-between">
+                        <Col>
+                            <a href="#">
+                                <div className="logo">
+                                    Logo
+                                </div>
+                            </a>
+                        </Col>
+                        <Col>
+                        {new Date().toDateString()}
+                        {this.state.time.toLocaleTimeString()}
+                        </Col>
+                    </Row>
+                </Layout.Header>
+
+                {/* main content */}
+                <Layout.Content>
+                    <div className="main">
+                        <WorldMap />
+                        <Country visitFrom={visitorCountry} />
+                        <CountryTable />
+                    </div>
+                </Layout.Content>
+
+                <Layout.Footer>
+                    Footer
+                </Layout.Footer>
+            </Layout>
         )
     }
 }

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// redux
-import { connect } from 'react-redux';
-// antd
 import { Input, Table } from 'antd';
+import { connect } from 'react-redux';
 
 
 const CountryTable = (props) => {

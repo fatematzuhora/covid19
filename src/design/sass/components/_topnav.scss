@@ -1,8 +1,8 @@
 .topnav {
     position: fixed;
-    z-index: 1;
+    z-index: 999;
     width: 100%;
-    background-color: $color-white;
+    background-color: transparent;
 
     .logo {
         float: left;

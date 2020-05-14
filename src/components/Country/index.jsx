@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// redux
-import { connect } from 'react-redux';
-// api endpoint
 import { getAllCountries, getChartDataByCountry } from 'api';
-// components
 import { CountryData, LineChart } from 'components';
-// antd
 import { Row, Col, Select } from 'antd';
+import { connect } from 'react-redux';
 
 
 const Country = (props) => {
@@ -14,11 +10,10 @@ const Country = (props) => {
     const [visitorCountry, setVisitorCountry] = useState(props.visitFrom);
     const [selectedCountry, setSelectedCountry] = useState(props.visitFrom);
     const [chartData, setChartData] = useState([]);
-    const [countryData, setCountryData] = useState({});
     
     const fetchData = async(slug) => {
         const country = props.countries.find(country => country.Slug === slug);
-        setCountryData(country);
+        // setCountryData(country);
         setCountryList(await getAllCountries());    
         setChartData(await getChartDataByCountry(slug));
     }
@@ -29,8 +24,9 @@ const Country = (props) => {
 
     const handleSelectCountry = async(slug) => {
         const country = props.countries.find(country => country.Slug === slug);
-        setCountryData(country);
+        // setCountryData(country);
         setChartData(await getChartDataByCountry(slug));
+        setSelectedCountry(slug);
     }
     
     const countrySelectOptions = countryList.map((country, i) => {
@@ -70,7 +66,7 @@ const Country = (props) => {
             </Row>
             <Row>
                 <Col span={8}>
-                    <CountryData data={countryData} />
+                    <CountryData country={selectedCountry} />
                 </Col>
                 <Col span={16}>
                     <LineChart data={chartData} />

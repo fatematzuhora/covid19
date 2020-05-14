@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
+import { connect } from 'react-redux';
 
 
 const CountryData = (props) => {
-    const { data } = props;
+    const [countryData, setCountryData] = useState({});
+
+    useEffect(() => {
+        const data = props.countries.find(c => c.Slug === props.country);
+        setCountryData(data);
+    }, [props.country])
 
     return (
         <div>
-            Name: {data.Country}<br/>
-            Total Confirmed: {data.TotalConfirmed}
+            Name: {countryData.Country}<br/>
+            Total Confirmed:
             <CountUp
-                start={0}
-                end={data.TotalConfirmed}
+                end={countryData.TotalConfirmed}
                 duration={2}
                 separator=","
             /><br/>
-            + {data.NewConfirmed}
+            + {countryData.NewConfirmed}
             <CountUp
-                start={0}
-                end={data.NewConfirmed}
+                end={countryData.NewConfirmed}
                 duration={2}
                 separator=","
             />
@@ -26,4 +30,9 @@ const CountryData = (props) => {
     )
 }
 
-export default CountryData;
+// redux state and dispatch
+const mapStateToProps = (state) => ({
+    countries: state.summary.countries
+})
+
+export default connect(mapStateToProps, null)(CountryData);

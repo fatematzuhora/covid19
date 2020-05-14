@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// redux
-import { connect } from 'react-redux';
-// components
 import { GlobalData } from 'components';
-// antd
 import { Radio, Row, Col } from 'antd';
 import { VectorMap } from 'react-jvectormap';
+import { connect } from 'react-redux';
 
 
 const WorldMap = (props) => {

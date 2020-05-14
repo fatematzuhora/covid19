@@ -1,9 +1,7 @@
 import React from 'react';
-// redux
-import { connect } from 'react-redux';
-// antd
 import { Row, Col } from 'antd';
 import CountUp from 'react-countup';
+import { connect } from 'react-redux';
 
 
 const GlobalData = (props) => {
