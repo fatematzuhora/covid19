@@ -4,33 +4,36 @@ import { connect } from 'react-redux';
 
 
 const CountryData = (props) => {
+    const [loading, setLoading] = useState(true);
     const [countryData, setCountryData] = useState({});
 
     useEffect(() => {
         const data = props.countries.find(c => c.Slug === props.country);
         setCountryData(data);
+        setLoading(false);
     }, [props.country])
 
     return (
-        <div>
-            Name: {countryData.Country}<br/>
-            Total Confirmed: {countryData.TotalConfirmed}
-            <CountUp
-                start={0}
-                end={countryData.TotalConfirmed}
-                duration={2}
-                separator=","
-                onEnd={({ pauseResume, reset, start, update }) => update()}
-                // onEnd={() => console.log('Ended! 👏')}
-                onStart={() => console.log(`Started! ${countryData.TotalConfirmed}`)}
-            /><br/>
-            + {countryData.NewConfirmed}
-            <CountUp
-                end={countryData.NewConfirmed}
-                duration={2}
-                separator=","
-            />
-        </div>
+        !loading ? (
+            <div>
+                Name: {countryData.Country}<br/>
+                Total Confirmed:
+                <CountUp
+                    start={0}
+                    end={countryData.TotalConfirmed}
+                    duration={2}
+                    separator=","
+                /><br/>
+                +
+                <CountUp
+                    end={countryData.NewConfirmed}
+                    duration={2}
+                    separator=","
+                />
+            </div>
+        )
+        :
+        ('')
     )
 }
 
