@@ -74,7 +74,6 @@ const WorldMap = (props) => {
                                 height: "100%"
                             }}
                             onRegionClick={handleClick} // gets the country code
-                            containerClassName="map"
                             regionsSelectable={false}
                             series={{
                                 regions: [{

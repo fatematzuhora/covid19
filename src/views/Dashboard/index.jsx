@@ -58,14 +58,16 @@ class Dashboard extends Component {
         
         // return the jsx
         return (
-            <Layout className="layout">
+            <Layout className="main">
                 {/* header / navbar */}
                 <Layout.Header className="topnav">
                     <Row type="flex" justify="space-between">
                         <Col>
                             <a href="#">
                                 <div className="logo">
-                                    Logo
+                                    C
+                                    <img src={require('assets/img/covid19.png')}/>
+                                    OVID-19 TRACKER
                                 </div>
                             </a>
                         </Col>
@@ -77,15 +79,18 @@ class Dashboard extends Component {
                 </Layout.Header>
 
                 {/* main content */}
-                <Layout.Content>
-                    <div className="main">
+                <Layout.Content className="content">
+                    <div className="banner">
                         <WorldMap />
+                    </div>
+
+                    <div className="data">
                         <Country visitFrom={visitorCountry} />
                         <CountryTable />
                     </div>
                 </Layout.Content>
 
-                <Layout.Footer>
+                <Layout.Footer className="footer">
                     Footer
                 </Layout.Footer>
             </Layout>
