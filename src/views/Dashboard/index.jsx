@@ -17,7 +17,8 @@ class Dashboard extends Component {
         this.state = {
             time: new Date(),
             loading: false,
-            visitorCountry: undefined
+            visitorCountry: undefined,
+            navClass: 'topnav topnav_bg_transparent'
         }
     }
 
@@ -29,6 +30,7 @@ class Dashboard extends Component {
 
     // async all data while component mount
     async componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
         this.timerID = setInterval(() => this.tick(), 1000);
         
         this.setState({ loading: true });
@@ -42,6 +44,14 @@ class Dashboard extends Component {
 
     componentWillUnmount() {
         clearInterval(this.timerID);
+    }
+
+    handleScroll = () => {
+        if (window.pageYOffset > 0) {
+            this.setState({ navClass: "topnav topnav_bg_white" });   
+        } else {
+            this.setState({ navClass: "topnav topnav_bg_transparent" });
+        }
     }
     
     // render starts from here
@@ -60,20 +70,24 @@ class Dashboard extends Component {
         return (
             <Layout className="main">
                 {/* header / navbar */}
-                <Layout.Header className="topnav">
+                <Layout.Header className={this.state.navClass}>
                     <Row type="flex" justify="space-between">
                         <Col>
                             <a href="#">
                                 <div className="logo">
                                     C
                                     <img src={require('assets/img/covid19.png')}/>
-                                    OVID-19 TRACKER
+                                    OVID-19
                                 </div>
                             </a>
                         </Col>
                         <Col>
-                        {new Date().toDateString()}
-                        {this.state.time.toLocaleTimeString()}
+                            <div className="time">
+                                <span className="today">
+                                    {new Date().toDateString()}
+                                </span>
+                                {this.state.time.toLocaleTimeString()}
+                            </div>
                         </Col>
                     </Row>
                 </Layout.Header>

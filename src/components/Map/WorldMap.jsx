@@ -15,31 +15,35 @@ const WorldMap = (props) => {
     }, {})
 
     const getMapData = (type) => {
-        let data = {}, color = [];
+        let data = {}, color = [], bgcolor = undefined;
         
         if(type === 'confirmed') {
             color = ['#ffb18c', '#ff7d40', '#ff6b26', '#ff5a0d'];
+            bgcolor = '#fff2ed';
             props.countries.forEach(country => {
                 data[country.CountryCode] = country.TotalConfirmed;
             })
         } else if(type === 'deaths') {
             color = ['#ffbfca', '#ff8ca1', '#f0002e', '#d70029'];
+            bgcolor = '#fffafa';
             props.countries.forEach(country => {
                 data[country.CountryCode] = country.TotalDeaths;
             })
         } else if(type === 'recovered') {
             color = ['#ceffde', '#00b43a', '#006721', '#004014'];
+            bgcolor = '#f5fff8';
             props.countries.forEach(country => {
                 data[country.CountryCode] = country.TotalRecovered;
             })
         } else if(type === 'active') {
             color = ['#ffb18c', '#ff7d40', '#ff6b26', '#ff5a0d'];
+            bgcolor = '#fff2ed';
             props.countries.forEach(country => {
                 data[country.CountryCode] = ( country.TotalConfirmed - (country.TotalDeaths + country.TotalRecovered));
             })
         }
 
-        return { data, color };
+        return { data, color, bgcolor };
     }
 
     const handleClick = (e, countryCode) => {
@@ -63,27 +67,26 @@ const WorldMap = (props) => {
             {/* world map */}
             <Row>
                 <Col span={24}>
-                    <div className="worldmap">
-                        <VectorMap
-                            map={"world_mill"}
-                            backgroundColor="transparent" // map background color
-                            zoomOnScroll={false}
-                            zoomButtons={false}
-                            containerStyle={{
-                                width: "100%",
-                                height: "100%"
-                            }}
-                            onRegionClick={handleClick} // gets the country code
-                            regionsSelectable={false}
-                            series={{
-                                regions: [{
-                                    values: mapData.data, // map data
-                                    scale: mapData.color, // map color palette based on case type
-                                    normalizeFunction: "polynomial"
-                                }]
-                            }}
-                        />
-                    </div>
+                    <VectorMap
+                        map={"world_mill"}
+                        backgroundColor={mapData.bgcolor} // map background color
+                        zoomOnScroll={false}
+                        zoomButtons={false}
+                        containerStyle={{
+                            width: "100%",
+                            height: "48rem",
+                            margin: "0 auto"
+                        }}
+                        onRegionClick={handleClick} // gets the country code
+                        regionsSelectable={false}
+                        series={{
+                            regions: [{
+                                values: mapData.data, // map data
+                                scale: mapData.color, // map color palette based on case type
+                                normalizeFunction: "polynomial"
+                            }]
+                        }}
+                    />
                 </Col>
             </Row>
 

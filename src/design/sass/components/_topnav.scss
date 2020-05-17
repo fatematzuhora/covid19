@@ -2,13 +2,41 @@
     position: fixed;
     z-index: 999;
     width: 100%;
-    background-color: transparent;
 
     .logo {
         float: left;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $color-danger;
         
         img {
-            width: 13.5rem;
+            padding: 0 .1rem;
+            width: 4rem;
+            position: relative;
+            top: -.25rem;
+            animation:spin 4s linear infinite;
         }
+    }
+
+    .time {
+        font-size: 1.6rem;
+        .today {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &_bg_transparent {
+        background-color: transparent;
+    }
+
+    &_bg_white {
+        background-color: $color-white;
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform:rotate(360deg);
     }
 }
