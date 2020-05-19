@@ -1,12 +1,12 @@
 // abstracts
 @import 'abstracts/variables';
+@import 'abstracts/utils';
 // base
 @import 'base/base';
 // components
 @import 'components/country';
 @import 'components/table';
 @import 'components/topnav';
-@import 'components/utils';
 @import 'components/worldmap';
 // views
 @import 'views/dashboard';

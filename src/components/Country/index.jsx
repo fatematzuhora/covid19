@@ -28,8 +28,8 @@ const Country = (props) => {
     })
 
     return (
-        <section className="section_country">
-            <Row>
+        <div className="country-data">
+            <Row className="header">
                 <Col span={12}>
                     <div className="report-date">
                         Last Update: {new Date(props.reportDate).toUTCString().split(',')[1]}
@@ -55,7 +55,7 @@ const Country = (props) => {
                     </Row>
                 </Col>
             </Row>
-            <Row>
+            <Row className="content">
                 <Col span={8}>
                     <CountryData country={selectedCountry} />
                 </Col>
@@ -63,7 +63,7 @@ const Country = (props) => {
                     <LineChart country={selectedCountry} />
                 </Col>
             </Row>
-        </section>
+        </div>
     )
 }
 
