@@ -11,6 +11,10 @@ const GlobalData = (props) => {
         <Row>
             <Col span={24}>
                 <div className="global">
+                    <div className="global_head">
+                        <img src={require('assets/img/global.svg')}/>
+                        Worldwide Statictics
+                    </div>
                     <p>
                         Confirmed:
                         <CountUp

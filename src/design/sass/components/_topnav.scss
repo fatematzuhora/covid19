@@ -8,18 +8,22 @@
         font-size: 2.2rem;
         font-weight: 600;
         color: $color-primary;
-        
-        img {
-            padding: 0 .1rem;
-            width: 4rem;
-            position: relative;
-            top: -.25rem;
-            animation:spin 4s linear infinite;
+
+        .covid19 {
+            margin: 0 .25rem;
+            img {
+                position: relative;
+                top: -.2rem;
+                animation: spin 4s linear infinite;
+            }
         }
     }
 
     .time {
         font-size: 1.6rem;
+        font-weight: 600;
+        color: $color-primary;
+
         .today {
             margin-right: 1.5rem;
         }
@@ -30,7 +34,7 @@
     }
 
     &_bg_white {
-        background-color: $color-white;
+        background-color: rgba($color-white, 0.6);
     }
 }
 

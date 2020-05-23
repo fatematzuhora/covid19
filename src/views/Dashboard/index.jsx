@@ -76,8 +76,10 @@ class Dashboard extends Component {
                             <a href="#">
                                 <div className="logo">
                                     C
-                                    <img src={require('assets/img/covid19.png')}/>
-                                    OVID-19
+                                    <span className="covid19">
+                                        <img src={require('assets/img/covid19.svg')}/>
+                                    </span>
+                                    VID-19
                                 </div>
                             </a>
                         </Col>
