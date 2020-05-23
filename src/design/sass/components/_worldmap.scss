@@ -7,12 +7,63 @@
     }
 
     .global {
-        left: 12rem;
-        top: 26rem;
+        text-align: center;
+        left: 3rem;
+        top: 18rem;
+
+        &_head {
+            img {
+                position: relative;
+                top: -.3rem;
+            }
+            .text {
+                text-transform: uppercase;
+                font-size: 2rem;
+                margin-left: .6rem;
+            }
+        }
+
+        .case {
+            width: 25rem;
+            border-radius: 1.2rem;
+            text-align: center;
+            margin: .7rem 0;
+            padding: .7rem 0;
+            
+            .name {
+                display: block;
+                text-transform: uppercase;
+                font-size: 1.6rem;
+                color: $color-secondary;
+            }
+            .total {
+                font-size: 2.6rem;
+                font-weight: 600;
+            }
+            .new {
+                position: relative;
+                top: -.4rem;
+                left: .5rem;
+                font-size: 1.5rem;
+            }
+        }
+
+        .case_confirmed {
+            background-color: rgba($color-confirmed, 0.1);
+            color: $color-confirmed;
+        }
+        .case_recovered {
+            background-color: rgba($color-recovered, 0.1);
+            color: $color-recovered;
+        }
+        .case_deaths {
+            background-color: rgba($color-deaths, 0.1);
+            color: $color-deaths;
+        }
     }
 
     .mapcase {
-        right: 8rem;
+        right: 10rem;
         bottom: 12rem;
 
         &_options {
@@ -20,6 +71,7 @@
             flex-direction: column;
             label {
                 padding: .8rem 0;
+                font-size: 1.6rem;
             }
         }
     }

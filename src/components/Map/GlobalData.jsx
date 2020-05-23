@@ -13,33 +13,71 @@ const GlobalData = (props) => {
                 <div className="global">
                     <div className="global_head">
                         <img src={require('assets/img/global.svg')}/>
-                        Worldwide Statictics
+                        <span className="text">Global Data</span>
                     </div>
-                    <p>
-                        Confirmed:
-                        <CountUp
-                            start={0}
-                            end={global.TotalConfirmed}
-                            duration={2}
-                            separator=","
-                        />
-                        
-                        <br/>+
-                        <CountUp
-                            start={0}
-                            end={global.NewConfirmed}
-                            duration={2}
-                            separator=","
-                        />
-                    </p>
-                    <p>
-                        Recovered: {global.TotalRecovered}<br/>
-                        + {global.NewRecovered}
-                    </p>
-                    <p>
-                        Deaths: {global.TotalDeaths}<br/>
-                        + {global.NewDeaths}
-                    </p>
+
+                    <div className="case case_confirmed">
+                        <span className="name">Confirmed</span>
+                        <span className="total">
+                            <CountUp
+                                start={0}
+                                end={global.TotalConfirmed}
+                                duration={2}
+                                separator=","
+                            />
+                        </span>
+                        <span className="new">
+                            +
+                            <CountUp
+                                start={0}
+                                end={global.NewConfirmed}
+                                duration={2}
+                                separator=","
+                            />
+                        </span>
+                    </div>
+
+                    <div className="case case_recovered">
+                        <span className="name">Recovered</span>
+                        <span className="total">
+                            <CountUp
+                                start={0}
+                                end={global.TotalRecovered}
+                                duration={2}
+                                separator=","
+                            />
+                        </span>
+                        <span className="new">
+                            +
+                            <CountUp
+                                start={0}
+                                end={global.NewRecovered}
+                                duration={2}
+                                separator=","
+                            />
+                        </span>
+                    </div>
+
+                    <div className="case case_deaths">
+                        <span className="name">Deaths</span>
+                        <span className="total">
+                            <CountUp
+                                start={0}
+                                end={global.TotalDeaths}
+                                duration={2}
+                                separator=","
+                            />
+                        </span>
+                        <span className="new">
+                            +
+                            <CountUp
+                                start={0}
+                                end={global.NewDeaths}
+                                duration={2}
+                                separator=","
+                            />
+                        </span>
+                    </div>
                 </div>
             </Col>
         </Row>
