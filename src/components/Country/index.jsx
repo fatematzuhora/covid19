@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllCountries } from 'api';
 import { CountryData, LineChart } from 'components';
-import { Row, Col, Select } from 'antd';
+import { Button, Row, Col, Select } from 'antd';
 import { connect } from 'react-redux';
 
 
@@ -30,28 +30,28 @@ const Country = (props) => {
     return (
         <div className="country-data">
             <Row className="header">
-                <Col span={12}>
-                    <div className="report-date">
-                        Last Update: {new Date(props.reportDate).toUTCString().split(',')[1]}
-                    </div>
+                <Col span={12} className="report-date">
+                    Last Update: {new Date(props.reportDate).toUTCString().split(',')[1]}
                 </Col>
                 <Col span={12}>
                     <Row justify="end">
-                        <div>My Country</div>
-                        <div>
-                            <Select
-                                showSearch
-                                style={{ width: 200 }}
-                                placeholder="Select a Country"
-                                optionFilterProp="children"
-                                onChange={(e) => handleSelectCountry(e)}
-                                filterOption={(input, option) =>
-                                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                }
-                            >
-                                {countrySelectOptions}
-                            </Select>
-                        </div>
+                        <Button type="primary" shape="round" size="large"
+                            className="my-country"
+                            onClick={() => {setSelectedCountry(props.visitFrom)}} >
+                            My Country
+                        </Button>
+                        <Select
+                            showSearch
+                            className="select-country"
+                            placeholder="Select a Country"
+                            optionFilterProp="children"
+                            onChange={(e) => handleSelectCountry(e)}
+                            filterOption={(input, option) =>
+                                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                            }
+                        >
+                            {countrySelectOptions}
+                        </Select>
                     </Row>
                 </Col>
             </Row>

@@ -1,6 +1,31 @@
 .country-data {
     .header {
-        margin: 5rem 0 2rem;
+        margin: 2rem 0;
+        padding: 3rem 2rem;
+        border-radius: .8rem;
+        background-color: rgba($color-recovered, 0.6);
+        color: $color-white;
+        font-size: 1.8rem;
+
+        .report-date {
+            top: .5rem;
+        }
+        .my-country {
+            padding: 0 3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+        .select-country {
+            width: 28rem;
+        }
+        .ant-select-selector {
+            height: 4rem;
+            padding: .4rem 1.5rem;
+            border-radius: .8rem;
+            font-size: 1.6rem;
+        }
     }
 
     .content {

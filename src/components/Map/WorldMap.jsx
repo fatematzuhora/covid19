@@ -77,7 +77,7 @@ const WorldMap = (props) => {
                             height: "48rem",
                             margin: "0 auto"
                         }}
-                        onRegionClick={handleClick} // gets the country code
+                        // onRegionClick={handleClick} // gets the country code
                         regionsSelectable={false}
                         series={{
                             regions: [{
