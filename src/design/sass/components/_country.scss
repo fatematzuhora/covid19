@@ -23,6 +23,7 @@
         .ant-select-selector {
             height: 4rem;
             padding: .4rem 1.5rem;
+            border: transparent;
             border-radius: .8rem;
             font-size: 1.6rem;
         }
@@ -31,6 +32,7 @@
     .content {
         padding: 2rem;
         background-color: rgba($color-secondary, 0.1);
+        border-radius: .8rem;
 
         .country {
             position: absolute;

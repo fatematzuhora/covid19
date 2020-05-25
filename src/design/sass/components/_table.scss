@@ -1,0 +1,13 @@
+.table {
+    background-color: rgba($color-secondary, 0.1);
+    border-radius: .8rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+
+    .ConfirmedCase, .DeathCase, .RecoveredCase {
+        font-weight: 600;
+    }
+    .ConfirmedCase { color: $color-confirmed; }
+    .DeathCase { color: $color-danger; }
+    .RecoveredCase { color: $color-recovered; }
+}

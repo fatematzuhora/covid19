@@ -11,16 +11,17 @@ const CountryTable = (props) => {
 
     const FilterByNameInput = (
         <Input
-            placeholder="Search Name"
+            placeholder="Search Country ..."
             value={value}
-            // onChange={e => {
-            //     const currValue = e.target.value;
-            //     setValue(currValue);
-            //     const filteredData = props.countries.filter(entry =>
-            //         entry.name.includes(currValue)
-            //     );
-            //     setData(filteredData);
-            // }}
+            onChange={e => {
+                const currValue = e.target.value;
+                setValue(currValue);
+                const filteredData = props.countries.filter(entry =>
+                    entry.name.includes(currValue)
+                );
+                console.log(filteredData);
+                // setData(filteredData);
+            }}
         />
     )
 
@@ -31,7 +32,8 @@ const CountryTable = (props) => {
         },
         {
             title: 'Total Cases',
-            dataIndex: 'TotalConfirmed'
+            dataIndex: 'TotalConfirmed',
+            className: 'ConfirmedCase'
         },
         {
             title: 'New Cases',
@@ -39,7 +41,8 @@ const CountryTable = (props) => {
         },
         {
             title: 'Total Deaths',
-            dataIndex: 'TotalDeaths'
+            dataIndex: 'TotalDeaths',
+            className: 'DeathCase'
         },
         {
             title: 'New Deaths',
@@ -47,7 +50,8 @@ const CountryTable = (props) => {
         },
         {
             title: 'Total Recovered',
-            dataIndex: 'TotalRecovered'
+            dataIndex: 'TotalRecovered',
+            className: 'RecoveredCase'
         },
         {
             title: 'New Recovered',
@@ -60,13 +64,12 @@ const CountryTable = (props) => {
     ]
 
     return (
-        <>
+        <div className="table">
             <Table
-                className=""
                 columns={columns}
                 dataSource={props.countries}
             />
-        </>
+        </div>
     )
 }
 
