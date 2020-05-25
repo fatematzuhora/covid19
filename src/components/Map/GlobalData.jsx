@@ -12,7 +12,7 @@ const GlobalData = (props) => {
             <Col span={24}>
                 <div className="global">
                     <div className="global_head">
-                        <img src={require('assets/img/global.svg')}/>
+                        <img src={require('assets/img/global.svg')} alt="global-icon"/>
                         <span className="text">Global Data</span>
                     </div>
 

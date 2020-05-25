@@ -28,17 +28,20 @@ const LineChart = (props) => {
                 datasets: [{
                     data: chartData.map(( { Confirmed } ) => Confirmed),
                     label: 'Confirmed',
-                    borderColor: '#3333ff',
+                    borderColor: '#ff5a0d',
+                    borderWidth: '1',
                     fill: true
                 }, {
                     data: chartData.map(( { Recovered } ) => Recovered),
                     label: 'Recovered',
-                    borderColor: 'green',
+                    borderColor: '#006721',
+                    borderWidth: '1',
                     fill: true
                 }, {
                     data: chartData.map(( { Deaths } ) => Deaths),
                     label: 'Deaths',
-                    borderColor: 'red',
+                    borderColor: '#d70029',
+                    borderWidth: '1',
                     fill: true
                 }]
             }}
@@ -50,17 +53,20 @@ const LineChart = (props) => {
                 datasets: [{
                     data: null,
                     label: 'Confirmed',
-                    borderColor: '#3333ff',
+                    borderColor: '#ff5a0d',
+                    borderWidth: '1',
                     fill: true
                 }, {
                     data: null,
                     label: 'Recovered',
-                    borderColor: 'green',
+                    borderColor: '#006721',
+                    borderWidth: '1',
                     fill: true
                 }, {
                     data: null,
                     label: 'Deaths',
-                    borderColor: 'red',
+                    borderColor: '#d70029',
+                    borderWidth: '1',
                     fill: true
                 }]
             }}

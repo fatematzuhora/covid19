@@ -1,0 +1,29 @@
+@mixin case($width:25rem, $radius:1.2rem, $text:center) {
+    width: $width;
+    border-radius: $radius;
+    text-align: $text;
+    margin: .7rem 0;
+    padding: .7rem 0;
+    
+    .name {
+        display: block;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        color: $color-secondary;
+    }
+    .total {
+        font-size: 2.6rem;
+        font-weight: 600;
+    }
+    .new {
+        position: relative;
+        top: -.4rem;
+        left: .5rem;
+        font-size: 1.5rem;
+    }
+}
+
+@mixin case_color($color) {
+    background-color: rgba($color, 0.1);
+    color: $color;
+}

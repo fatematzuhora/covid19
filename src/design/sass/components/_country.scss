@@ -29,7 +29,29 @@
     }
 
     .content {
-        padding: 5rem;
-        background-color: rgba($color-primary, 0.1);
+        padding: 2rem;
+        background-color: rgba($color-secondary, 0.1);
+
+        .country {
+            position: absolute;
+            text-align: center;
+            
+            .name {
+                text-transform: uppercase;
+                font-size: 2rem;
+            }
+            .case {
+                @include case;
+            }
+            .case_confirmed {
+                @include case_color($color-confirmed);
+            }
+            .case_recovered {
+                @include case_color($color-recovered);
+            }
+            .case_deaths {
+                @include case_color($color-deaths);
+            }
+        }
     }
 }

@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 const WorldMap = (props) => {
     const [type, setType] = useState('confirmed');
     const [mapData, setMapData] = useState({});
-    const [countryData, setCountryData] = useState({});
 
     useEffect(() => {
         setMapData(getMapData(type));
@@ -46,12 +45,6 @@ const WorldMap = (props) => {
         return { data, color, bgcolor };
     }
 
-    const handleClick = (e, countryCode) => {
-        let code = countryCode;
-        const country = props.countries.find(country => country.CountryCode === code);
-        setCountryData(country);
-    }
-
     const onChange = e => {
         let newType = e.target.value;
         setType(newType);
@@ -77,7 +70,6 @@ const WorldMap = (props) => {
                             height: "48rem",
                             margin: "0 auto"
                         }}
-                        // onRegionClick={handleClick} // gets the country code
                         regionsSelectable={false}
                         series={{
                             regions: [{

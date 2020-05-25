@@ -24,41 +24,16 @@
         }
 
         .case {
-            width: 25rem;
-            border-radius: 1.2rem;
-            text-align: center;
-            margin: .7rem 0;
-            padding: .7rem 0;
-            
-            .name {
-                display: block;
-                text-transform: uppercase;
-                font-size: 1.6rem;
-                color: $color-secondary;
-            }
-            .total {
-                font-size: 2.6rem;
-                font-weight: 600;
-            }
-            .new {
-                position: relative;
-                top: -.4rem;
-                left: .5rem;
-                font-size: 1.5rem;
-            }
+            @include case;
         }
-
         .case_confirmed {
-            background-color: rgba($color-confirmed, 0.1);
-            color: $color-confirmed;
+            @include case_color($color-confirmed);
         }
         .case_recovered {
-            background-color: rgba($color-recovered, 0.1);
-            color: $color-recovered;
+            @include case_color($color-recovered);
         }
         .case_deaths {
-            background-color: rgba($color-deaths, 0.1);
-            color: $color-deaths;
+            @include case_color($color-deaths);
         }
     }
 

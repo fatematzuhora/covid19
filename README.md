@@ -1,6 +1,9 @@
 # [covid19 Tracker]()
 An interactive web app to visualize and track Novel Coronavirus (COVID-19) data, made with React & Redux.
 
+[![reactjs](https://img.shields.io/badge/react-^16.13.1-blue.svg?style=flat-square)](https://github.com/facebook/react)
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/fatematzuhora/covid19.git)
+
 Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19)
 
 API is built by [covid19api.com](https://covid19api.com/)

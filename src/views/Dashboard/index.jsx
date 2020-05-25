@@ -77,7 +77,7 @@ class Dashboard extends Component {
                                 <div className="logo">
                                     C
                                     <span className="covid19">
-                                        <img src={require('assets/img/covid19.svg')}/>
+                                        <img src={require('assets/img/covid19.svg')} alt="animate-logo"/>
                                     </span>
                                     VID-19
                                 </div>
