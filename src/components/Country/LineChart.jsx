@@ -29,19 +29,19 @@ const LineChart = (props) => {
                     data: chartData.map(( { Confirmed } ) => Confirmed),
                     label: 'Confirmed',
                     borderColor: '#ff5a0d',
-                    borderWidth: '1',
+                    pointRadius: '1',
                     fill: true
                 }, {
                     data: chartData.map(( { Recovered } ) => Recovered),
                     label: 'Recovered',
                     borderColor: '#006721',
-                    borderWidth: '1',
+                    pointRadius: '1',
                     fill: true
                 }, {
                     data: chartData.map(( { Deaths } ) => Deaths),
                     label: 'Deaths',
                     borderColor: '#d70029',
-                    borderWidth: '1',
+                    pointRadius: '1',
                     fill: true
                 }]
             }}
@@ -54,19 +54,16 @@ const LineChart = (props) => {
                     data: null,
                     label: 'Confirmed',
                     borderColor: '#ff5a0d',
-                    borderWidth: '1',
                     fill: true
                 }, {
                     data: null,
                     label: 'Recovered',
                     borderColor: '#006721',
-                    borderWidth: '1',
                     fill: true
                 }, {
                     data: null,
                     label: 'Deaths',
                     borderColor: '#d70029',
-                    borderWidth: '1',
                     fill: true
                 }]
             }}

@@ -51,6 +51,37 @@ const WorldMap = (props) => {
         setMapData(getMapData(newType));
     }
 
+    const formatNumber = num => {
+        if(num > 999) {
+            return `${( Math.floor(num / 100) / 10.0 )}k`;
+        } else {
+            return num;
+        }
+    }
+
+    const getCount = countryCode => {
+        let code = countryCode,
+            totalCount = 0,
+                newCount = 0;
+        
+        const country = props.countries.find(country => country.CountryCode === code);
+        if(type === 'confirmed') {
+            totalCount = formatNumber(country.TotalConfirmed);
+            newCount = formatNumber(country.NewConfirmed);
+        } else if(type === 'deaths') {
+            totalCount = formatNumber(country.TotalDeaths);
+            newCount = formatNumber(country.NewDeaths);
+        } else if(type === 'recovered') {
+            totalCount = formatNumber(country.TotalRecovered);
+            newCount = formatNumber(country.NewRecovered);
+        } else if(type === 'active') {
+            totalCount = formatNumber(( country.TotalConfirmed - (country.TotalDeaths + country.TotalRecovered) ));
+            newCount = formatNumber(country.NewConfirmed);
+        }
+        
+        return {totalCount, newCount};
+    }
+
     return (
         <section className="section_map">
 
@@ -60,6 +91,7 @@ const WorldMap = (props) => {
             {/* world map */}
             <Row>
                 <Col span={24}>
+                    <div id="customTip" class="jvectormap-tip"></div>
                     <VectorMap
                         map={"world_mill"}
                         backgroundColor={mapData.bgcolor} // map background color
@@ -70,7 +102,25 @@ const WorldMap = (props) => {
                             height: "48rem",
                             margin: "0 auto"
                         }}
+                        onRegionClick={false}
+                        onRegionTipShow={(e, label, code) => {
+                            label.html(`<img src="https://www.countryflags.io/${code}/flat/16.png" alt="${code}"/>
+                                ${label.html()}: ${getCount(code).totalCount}<br/>
+                                    + ${getCount(code).newCount}`);
+                        }}
                         regionsSelectable={false}
+                        regionLabelStyle = {{
+                            initial: {
+                                'font-family': 'Verdana',
+                                'font-size': '12',
+                                'font-weight': 'bold',
+                                'cursor': 'default',
+                                'fill': 'red'
+                            },
+                            hover: {
+                                'cursor': 'pointer'
+                            }
+                        }}
                         series={{
                             regions: [{
                                 values: mapData.data, // map data

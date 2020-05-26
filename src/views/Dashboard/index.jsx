@@ -107,7 +107,9 @@ class Dashboard extends Component {
                 </Layout.Content>
 
                 <Layout.Footer className="footer">
-                    Footer
+                    2020 &copy; Made with 3> by fatematzuhora
+                    Proudly Open Source
+                    Contact Me
                 </Layout.Footer>
             </Layout>
         )
