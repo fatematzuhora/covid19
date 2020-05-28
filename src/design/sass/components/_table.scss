@@ -4,6 +4,26 @@
     padding: 1.5rem;
     margin: 2rem 0;
 
+    .search {
+        position: relative;
+
+        &_box {
+            width: 100%;
+            border: .3rem solid $color-primary;
+            margin: 1rem 0;
+        }
+        &_filter {
+            background-color: $color-primary;
+            color: $color-white;
+            padding: .3rem 1rem;
+            border-radius: .5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1.5rem;
+            right: .6rem;
+        }
+    }
+
     .ConfirmedCase, .DeathCase, .RecoveredCase {
         font-weight: 600;
     }
