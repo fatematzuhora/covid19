@@ -63,20 +63,25 @@ const WorldMap = (props) => {
         let code = countryCode,
             totalCount = 0,
                 newCount = 0;
-        
-        const country = props.countries.find(country => country.CountryCode === code);
-        if(type === 'confirmed') {
-            totalCount = formatNumber(country.TotalConfirmed);
-            newCount = formatNumber(country.NewConfirmed);
-        } else if(type === 'deaths') {
-            totalCount = formatNumber(country.TotalDeaths);
-            newCount = formatNumber(country.NewDeaths);
-        } else if(type === 'recovered') {
-            totalCount = formatNumber(country.TotalRecovered);
-            newCount = formatNumber(country.NewRecovered);
-        } else if(type === 'active') {
-            totalCount = formatNumber(( country.TotalConfirmed - (country.TotalDeaths + country.TotalRecovered) ));
-            newCount = formatNumber(country.NewConfirmed);
+
+        if (code) {
+            const country = props.countries.find(country => country.CountryCode === code);
+
+            if (country) {
+                if(type === 'confirmed') {
+                    totalCount = formatNumber(country.TotalConfirmed);
+                    newCount = formatNumber(country.NewConfirmed);
+                } else if(type === 'deaths') {
+                    totalCount = formatNumber(country.TotalDeaths);
+                    newCount = formatNumber(country.NewDeaths);
+                } else if(type === 'recovered') {
+                    totalCount = formatNumber(country.TotalRecovered);
+                    newCount = formatNumber(country.NewRecovered);
+                } else if(type === 'active') {
+                    totalCount = formatNumber(( country.TotalConfirmed - (country.TotalDeaths + country.TotalRecovered) ));
+                    newCount = formatNumber(country.NewConfirmed);
+                }
+            }
         }
         
         return {totalCount, newCount};
