@@ -111,14 +111,14 @@ class Dashboard extends Component {
                         <Col>
                             2020 &copy; Made with
                             <span className="footer_icon">
-                                <img src={require('assets/img/heart.svg')} alt="heart-icon"/>
+                                <img src={require('assets/img/icons/heart.svg')} alt="heart-icon"/>
                             </span>
                             by <a href="https://github.com/fatematzuhora" target="blank">fatematzuhora</a>
                         </Col>
                         <Col>
                             <a href="https://github.com/fatematzuhora/covid19" target="blank">
                                 <span className="footer_icon">
-                                    <img src={require('assets/img/github.svg')} alt="github-icon"/>
+                                    <img src={require('assets/img/icons/github.svg')} alt="github-icon"/>
                                 </span>
                                 Proudly Open Source
                             </a>
