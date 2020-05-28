@@ -14,5 +14,12 @@
 }
 
 .footer {
-    background-color: rgba($color-secondary, 0.3);
+    background-color: $color-white;
+    box-shadow: 0 -.4rem .3rem rgba($color-black, 0.1);
+
+    &_icon {
+        padding: 0 .5rem;
+        position: relative;
+        bottom: .2rem;
+    }
 }

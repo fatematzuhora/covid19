@@ -107,9 +107,23 @@ class Dashboard extends Component {
                 </Layout.Content>
 
                 <Layout.Footer className="footer">
-                    2020 &copy; Made with 3> by fatematzuhora
-                    Proudly Open Source
-                    Contact Me
+                    <Row className="flex" justify="space-between">
+                        <Col>
+                            2020 &copy; Made with
+                            <span className="footer_icon">
+                                <img src={require('assets/img/heart.svg')} alt="heart-icon"/>
+                            </span>
+                            by <a href="https://github.com/fatematzuhora" target="blank">fatematzuhora</a>
+                        </Col>
+                        <Col>
+                            <a href="https://github.com/fatematzuhora/covid19" target="blank">
+                                <span className="footer_icon">
+                                    <img src={require('assets/img/github.svg')} alt="github-icon"/>
+                                </span>
+                                Proudly Open Source
+                            </a>
+                        </Col>
+                    </Row>
                 </Layout.Footer>
             </Layout>
         )
