@@ -15,21 +15,3 @@
         }
     }
 }
-
-.footer {
-    background-color: $color-white;
-    box-shadow: 0 -.4rem .3rem rgba($color-black, 0.1);
-
-    &_icon {
-        padding: 0 .5rem;
-        position: relative;
-        bottom: .2rem;
-    }
-
-    .text {
-        @media only screen and (max-width: 420px) {
-            width: 100%;
-            text-align: center;
-        }
-    }
-}

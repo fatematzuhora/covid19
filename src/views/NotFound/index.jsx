@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Footer } from 'components';
 // antd
 import { Layout } from 'antd';
 
@@ -16,6 +17,8 @@ export default class NotFound extends Component {
                         <img src={require('assets/img/blank_canvas.svg')} alt="404"/>
                     </div>
                 </Layout.Content>
+
+                <Footer />
             </Layout>
         )
     }

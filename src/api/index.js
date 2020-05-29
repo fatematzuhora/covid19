@@ -16,8 +16,8 @@ export const getSummaryData = async() => {
 // fetch country code from visitor IP
 export const getGeoInfo = async() => {
     try {
-        const { data: { country } } = await axios.get(IP_URL);
-        return country.toLowerCase();
+        const { data: { country_name } } = await axios.get(IP_URL);
+        return country_name.toLowerCase();
     } catch (err) {
         console.log(err);
     }
