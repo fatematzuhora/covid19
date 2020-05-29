@@ -12,7 +12,7 @@ API is built by [covid19api.com](https://covid19api.com/)
 ### Live URL
 `covid19 Tracker` app is running as a website hosted on
 
-👉 [https://covid19-tracker-fatematzuhora.netlify.app/](https://covid19-tracker-fatematzuhora.netlify.app/)
+👉 [https://covid19-tracker-fatematzuhora.netlify.app](https://covid19-tracker-fatematzuhora.netlify.app)
 
 
 ### Screenshot
