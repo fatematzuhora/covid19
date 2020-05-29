@@ -15,8 +15,8 @@ API is built by [covid19api.com](https://covid19api.com/)
 👉 [https://]()
 
 
-### Screenshots
-![](doc/screenshot.jpg)
+### Screenshot
+![](doc/screenshot.png)
 
 
 ### Quick Start
