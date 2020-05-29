@@ -6,9 +6,22 @@
         background-color: rgba($color-recovered, 0.6);
         color: $color-white;
         font-size: 1.8rem;
+        @media only screen and (max-width: 920px) {
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 1.6rem;
+        }
 
         .report-date {
             top: .5rem;
+            @media only screen and (max-width: 920px) {
+                top: 0;
+            }
+        }
+        .options {
+            @media only screen and (max-width: 920px) {
+                justify-content: center !important;
+            }
         }
         .my-country {
             padding: 0 3rem;
@@ -16,9 +29,15 @@
             text-transform: uppercase;
             cursor: pointer;
             margin-right: 1rem;
+            @media only screen and (max-width: 599px) {
+                margin: .5rem 0;
+            }
         }
         .select-country {
             width: 28rem;
+            @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+                width: 20rem;
+            }
         }
         .ant-select-selector {
             height: 4rem;
@@ -33,10 +52,16 @@
         padding: 2rem;
         background-color: rgba($color-secondary, 0.1);
         border-radius: .8rem;
+        @media only screen and (max-width: 420px) {
+            padding: 1rem;
+        }
 
         .country {
             position: absolute;
             text-align: center;
+            @media only screen and (max-width: 920px) {
+                position: unset;
+            }    
             
             .name {
                 text-transform: uppercase;
@@ -44,6 +69,9 @@
             }
             .case {
                 @include case;
+                @media only screen and (min-width: 520px) and (max-width: 920px) {
+                    width: 100%;
+                }
             }
             .case_confirmed {
                 @include case_color($color-confirmed);

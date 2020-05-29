@@ -30,11 +30,11 @@ const Country = (props) => {
     return (
         <div className="country-data">
             <Row className="header">
-                <Col span={12} className="report-date">
+                <Col xs={24} lg={12} className="report-date">
                     Last Update: {new Date(props.reportDate).toUTCString().split(',')[1]}
                 </Col>
-                <Col span={12}>
-                    <Row justify="end">
+                <Col xs={24} lg={12}>
+                    <Row justify="end" className="options">
                         <Button type="primary" shape="round" size="large"
                             className="my-country"
                             onClick={() => {setSelectedCountry(props.visitFrom)}} >
@@ -55,11 +55,11 @@ const Country = (props) => {
                     </Row>
                 </Col>
             </Row>
-            <Row className="content">
-                <Col span={8}>
+            <Row type="flex" className="content">
+                <Col xs={24} lg={8}>
                     <CountryData country={selectedCountry} />
                 </Col>
-                <Col span={16}>
+                <Col xs={24} lg={16}>
                     <LineChart country={selectedCountry} />
                 </Col>
             </Row>

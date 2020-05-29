@@ -71,7 +71,7 @@ const CountryTable = (props) => {
 
     return (
         <Row type="flex">
-            <Col span={24}>
+            <Col xs={24} lg={24}>
                 <div className="table">
                     <div className="search">
                         <Select
@@ -101,6 +101,7 @@ const CountryTable = (props) => {
                     </div>
 
                     <Table
+                        className="table_data"
                         columns={columns}
                         dataSource={tableData}
                     />

@@ -10,13 +10,8 @@
     .data {
         width: 80%;
         margin: 0 auto;
-    }
-    .notfound {
-        text-align: center;
-        margin-top: 3rem;
-
-        img {
-            height: 80vh;
+        @media only screen and (max-width: 420px) {
+            width: 90%;
         }
     }
 }
@@ -29,5 +24,12 @@
         padding: 0 .5rem;
         position: relative;
         bottom: .2rem;
+    }
+
+    .text {
+        @media only screen and (max-width: 420px) {
+            width: 100%;
+            text-align: center;
+        }
     }
 }

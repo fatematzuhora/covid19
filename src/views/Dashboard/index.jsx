@@ -71,9 +71,9 @@ class Dashboard extends Component {
             <Layout className="main">
                 {/* header / navbar */}
                 <Layout.Header className={this.state.navClass}>
-                    <Row type="flex" justify="space-between">
+                    <Row type="flex" justify="space-between" className="topnav_row">
                         <Col>
-                            <a href="#">
+                            <a href="/">
                                 <div className="logo">
                                     C
                                     <span className="covid19">
@@ -108,21 +108,21 @@ class Dashboard extends Component {
 
                 <Layout.Footer className="footer">
                     <Row className="flex" justify="space-between">
-                        <Col>
+                        <div className="text">
                             2020 &copy; Made with
                             <span className="footer_icon">
                                 <img src={require('assets/img/icons/heart.svg')} alt="heart-icon"/>
                             </span>
                             by <a href="https://github.com/fatematzuhora" target="blank">fatematzuhora</a>
-                        </Col>
-                        <Col>
+                        </div>
+                        <div className="text">
                             <a href="https://github.com/fatematzuhora/covid19" target="blank">
                                 <span className="footer_icon">
                                     <img src={require('assets/img/icons/github.svg')} alt="github-icon"/>
                                 </span>
                                 Proudly Open Source
                             </a>
-                        </Col>
+                        </div>
                     </Row>
                 </Layout.Footer>
             </Layout>

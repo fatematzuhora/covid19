@@ -10,8 +10,33 @@
         text-align: center;
         left: 3rem;
         top: 18rem;
+        @media only screen and (max-width: 420px) {
+            top: 32rem;
+            left: .5rem;
+            right: .5rem;
+        }
+        @media only screen and (min-width: 520px) and (max-width: 920px) {
+            display: flex;
+            top: 40rem;
+            left: .5rem;
+            right: .5rem;
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+            top: 24rem;
+            left: 1rem;
+        }
+        @media only screen and (min-width: 1920px) {
+            left: 15rem;
+            top: 15rem;
+        }
 
         &_head {
+            @media only screen and (max-width: 920px) {
+                display: none;
+            }
+            @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+                text-align: left;
+            }
             img {
                 position: relative;
                 top: -.3rem;
@@ -40,13 +65,40 @@
     .mapcase {
         right: 10rem;
         bottom: 12rem;
+        @media only screen and (max-width: 420px) {
+            bottom: 36rem;
+            right: 0;
+        }
+        @media only screen and (min-width: 520px) and (max-width: 920px) {
+            bottom: 10rem;
+            left: 2rem;
+        }
+        @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+            right: 1rem;
+            bottom: 14rem;
+        }
+        @media only screen and (min-width: 1920px) {
+            right: 20rem;
+        }
 
         &_options {
             display: flex;
             flex-direction: column;
+            @media only screen and (max-width: 420px) {
+                flex-direction: unset;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             label {
                 padding: .8rem 0;
                 font-size: 1.6rem;
+                @media only screen and (max-width: 420px) {
+                    padding: 0;
+                }
+                @media only screen and (min-width: 520px) and (max-width: 920px) {
+                    padding: .2rem 0;
+                }
             }
         }
     }

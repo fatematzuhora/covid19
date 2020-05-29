@@ -2,9 +2,14 @@
     position: fixed;
     z-index: 999;
     width: 100%;
+    @media only screen and (max-width: 420px) {
+        &_row {
+            display: block;
+            text-align: center;
+        }
+    }
 
     .logo {
-        float: left;
         font-size: 2.2rem;
         font-weight: 600;
         color: $color-primary;
@@ -23,6 +28,9 @@
         font-size: 1.6rem;
         font-weight: 600;
         color: $color-primary;
+        @media only screen and (max-width: 420px) {
+            display: none;
+        }
 
         .today {
             margin-right: 1.5rem;
