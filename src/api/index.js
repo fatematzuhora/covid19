@@ -1,6 +1,6 @@
 import axios from 'axios';
 // config
-import { BASE_URL, IP_URL } from 'config';
+import { BASE_URL, IP_URL, IP_URL_ACCESS_KEY } from 'config';
 
 
 // fetch summary
@@ -16,7 +16,7 @@ export const getSummaryData = async() => {
 // fetch country code from visitor IP
 export const getGeoInfo = async() => {
     try {
-        const { data: { country_name } } = await axios.get(IP_URL);
+        const { data: { country_name } } = await axios.get(`${IP_URL}/?api-key=${IP_URL_ACCESS_KEY}`);
         return country_name.toLowerCase();
     } catch (err) {
         console.log(err);
