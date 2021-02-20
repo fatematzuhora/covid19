@@ -8,7 +8,7 @@ const Footer = () => {
         <Layout.Footer className="footer">
             <Row className="flex" justify="space-between">
                 <div className="text">
-                    2020 &copy; Made with
+                    {new Date().getFullYear()} &copy; Made with
                     <span className="footer_icon">
                         <img src={require('assets/img/icons/heart.svg')} alt="heart-icon"/>
                     </span>
